@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+						"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!-- VO alias -->
+<configuration>
+	<typeAliases>
+		<!-- 최성훈 VO -->
+		<!-- <typeAlias type="dmy.comment.vo.DmyCommentVO" alias="DmyCommentVO"/>	 -->
+		<typeAlias type="dmy.tipboard.vo.DmyTipBoardVO" alias="DmyTipBoardVO"/>			
+	</typeAliases>
+</configuration>		
