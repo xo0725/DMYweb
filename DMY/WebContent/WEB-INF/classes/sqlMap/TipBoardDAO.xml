@@ -76,7 +76,7 @@
 		FROM       		   DMY_TIPBOARD A, (SELECT * FROM DMY_PAGING WHERE DPG_TABLENO='04') C 
         WHERE              A.DMB_NO = #{dmb_no}
         AND                A.DTB_DELETEYN = 'Y'
-          	<if test="DTB_category!=null and DTB_category!='' and DTB_category!='null' and DTB_category!='전체'">
+          	<if test="dtb_category!=null and dtb_category!='' and dtb_category!='null' and dtb_category!='전체'">
 					<![CDATA[AND		A.DTB_CATEGORY = #{dtb_category,jdbcType=VARCHAR}]]> 
 				</if>
 				<if test="searchFilter=='제목'">
@@ -90,91 +90,45 @@
 				<![CDATA[OR A.DTB_CONTENT LIKE '%'||#{keyword}||'%']]>
 				</if>
 		ORDER BY		   A.DTB_NO DESC )  L ) LIST	 
-		WHERE 			   DPG_CURPAGE = #{DPG_curPage, jdbcType=VARCHAR}  
+		WHERE 			   DPG_CURPAGE = #{dpg_curPage, jdbcType=VARCHAR}  
 	</select>
 	
 	<!-- 팁공유게시판목록 전체조회 -->
 	<select id="listallboard" parameterType="DmyTipBoardVO" resultType="DmyTipBoardVO">
-		SELECT LIST.*
-		FROM ( SELECT L.*, ROWNUM AS DTB_ROWNUM
-		FROM (  SELECT
-					       A.DTB_NO                                                                      AS DTB_NO            -- 글번호
-					      ,A.DTB_CATEGORY                                                                AS DTB_CATEGORY      -- 카테고리
-					      ,A.DTB_SUBJECT                                                                 AS DTB_SUBJECT       -- 제목
-					      ,A.DTB_VIEWCNT                                                                 AS DTB_VIEWCNT       -- 조회수
-					      ,A.DTB_GOODCNT                                                                 AS DTB_GOODCNT       -- 좋아요
-					      ,A.DTB_PW                                                                      AS DTB_PW            -- 비밀번호
-					      ,A.DTB_CONTENT                                                                 AS DTB_CONTENT       -- 내용
-					      ,A.DTB_FILE                                                                    AS DTB_FILE          -- 파일
-					      ,A.DTB_SHAREYN                                                                 AS DTB_SHAREYN       -- 공유여부
-					      ,A.DTB_DELETEYN                                                                AS DTB_DELETEYN      -- 삭제여부
-					      ,TO_CHAR(A.DTB_INSERTDATE,'YYYY-MM-DD')                                        AS DTB_INSERTDATE    -- 등록일
-					      ,TO_CHAR(A.DTB_UPDATEDATE,'YYYY-MM-DD')                                        AS DTB_UPDATEDATE    -- 수정일
-					      ,A.DMB_NO                                                                      AS DMB_NO            -- 회원번호
-					      ,(SELECT B.DMB_ID AS DMB_ID FROM DMY_MEMBER B WHERE B.DMB_NO = A.DMB_NO)  AS DMB_ID            -- 아이디
-					      ,CEIL(ROW_NUMBER() OVER(ORDER BY A.DTB_NO DESC) / C.DPG_PAGESIZE)              AS DPG_CURPAGE
-					      ,COUNT(A.DTB_NO) OVER()                                                        AS DPG_TOTALSIZE
-					      ,C.DPG_PAGESIZE                                                                AS DPG_PAGESIZE
-					      ,C.DPG_GROUPSIZE                                                               AS DPG_GROUPSIZE
-		FROM       		   DMY_TIPBOARD A, (SELECT * FROM DMY_PAGING WHERE DPG_TABLENO='04') C 	
-		 	 <if test="DTB_category!=null and DTB_category!='' and DTB_category!='null' and DTB_category!='전체'">
-					<![CDATA[AND		A.DTB_CATEGORY = #{dtb_category,jdbcType=VARCHAR}]]> 
-				</if>
-				<if test="searchFilter=='제목'">
-					<![CDATA[AND A.DTB_SUBJECT LIKE '%' || #{keyword,jdbcType=VARCHAR} || '%']]>
-				</if>
-					<if test="searchFilter=='내용'">
-					<![CDATA[AND A.DTB_CONTENT LIKE '%'||#{keyword}||'%']]>
-				</if>
-				<if test="searchFilter=='제목+내용'">
-				<![CDATA[AND A.DTB_SUBJECT LIKE '%'||#{keyword}||'%']]>
-				<![CDATA[OR A.DTB_CONTENT LIKE '%'||#{keyword}||'%']]>
-				</if>
-		ORDER BY		   A.DTB_NO DESC )  L ) LIST	 
-		WHERE 			   DPG_CURPAGE = #{DPG_curPage, jdbcType=VARCHAR}  
+		SELECT    
+			  		A.DTB_NO 
+				   ,A.DTB_CATEGORY 
+				   ,A.DTB_SUBJECT 
+				   ,A.DTB_VIEWCNT 
+				   ,A.DTB_GOODCNT 
+				   ,A.DTB_PW 
+				   ,A.DTB_CONTENT 
+				   ,A.DTB_FILE 
+				   ,A.DTB_SHAREYN 
+				   ,A.DTB_DELETEYN 
+				   ,A.DTB_INSERTDATE 
+				   ,A.DTB_UPDATEDATE 
+				   ,A.DMB_NO
+				FROM DMY_TIPBOARD A
 	</select>
 	
 	<!-- 팁공유게시판 목록조회 -->
 	<select id="listBoard" parameterType="DmyTipBoardVO" resultType="DmyTipBoardVO">
-		SELECT LIST.*
-		FROM ( SELECT L.*, ROWNUM AS DTB_ROWNUM
-		FROM (  SELECT
-					       A.DTB_NO                                                                      										AS DTB_NO            -- 글번호
-					      ,A.DTB_CATEGORY                                                               									    AS DTB_CATEGORY      -- 카테고리
-					      ,A.DTB_SUBJECT                                                                 										AS DTB_SUBJECT       -- 제목
-					      ,A.DTB_VIEWCNT                                                                 										AS DTB_VIEWCNT       -- 조회수
-					      ,A.DTB_PW                                                                      										AS DTB_PW            -- 비밀번호
-					      ,A.DTB_CONTENT                                                                 										AS DTB_CONTENT       -- 내용
-					      ,A.DTB_FILE                                                                    										AS DTB_FILE          -- 파일
-					      ,A.DTB_SHAREYN                                                                 										AS DTB_SHAREYN       -- 공유여부
-					      ,A.DTB_DELETEYN                                                                										AS DTB_DELETEYN      -- 삭제여부
-					      ,TO_CHAR(A.DTB_INSERTDATE,'YYYY-MM-DD')                                        										AS DTB_INSERTDATE    -- 등록일
-					      ,TO_CHAR(A.DTB_UPDATEDATE,'YYYY-MM-DD')                                        										AS DTB_UPDATEDATE    -- 수정일
-					      ,A.DMB_NO                                                                      										AS DMB_NO            -- 회원번호
-					      ,(SELECT B.DMB_ID AS DMB_ID FROM DMY_MEMBER B WHERE B.DMB_NO = A.DMB_NO)  										AS DMB_ID            -- 아이디
-					      ,CEIL(ROW_NUMBER() OVER(ORDER BY A.DTB_NO DESC) / C.DPG_PAGESIZE)              										AS DPG_CURPAGE
-					      ,COUNT(A.DTB_NO) OVER()                                                        										AS DPG_TOTALSIZE
-					      ,C.DPG_PAGESIZE                                                                										AS DPG_PAGESIZE
-					      ,C.DPG_GROUPSIZE                                                               										AS DPG_GROUPSIZE
-		FROM               DMY_TIPBOARD A, (SELECT * FROM DMY_PAGING WHERE DPG_TABLENO='04') C 
-		WHERE              A.DTB_DELETEYN = 'Y'
-		AND                A.DTB_SHAREYN = 'Y'
-			    <if test="DTB_category!=null and DTB_category!='' and DTB_category!='null' and DTB_category!='전체'">
-					<![CDATA[AND		A.DTB_CATEGORY = #{dtb_category,jdbcType=VARCHAR}]]> 
-				</if>
-				<if test="searchFilter=='제목'">
-					<![CDATA[AND A.DTB_SUBJECT LIKE '%' || #{keyword,jdbcType=VARCHAR} || '%']]>
-				</if>
-					<if test="searchFilter=='내용'">
-					<![CDATA[AND A.DTB_CONTENT LIKE '%'||#{keyword}||'%']]>
-				</if>
-				<if test="searchFilter=='제목+내용'">
-				<![CDATA[AND A.DTB_SUBJECT LIKE '%'||#{keyword}||'%']]>
-				<![CDATA[OR A.DTB_CONTENT LIKE '%'||#{keyword}||'%']]>
-				</if>
-				
-		ORDER BY        A.DTB_NO DESC )  L ) LIST	 
-		WHERE           DPG_CURPAGE = #{DPG_curPage, jdbcType=VARCHAR}  
+			  SELECT    
+			  		A.DTB_NO 
+				   ,A.DTB_CATEGORY 
+				   ,A.DTB_SUBJECT 
+				   ,A.DTB_VIEWCNT 
+				   ,A.DTB_GOODCNT 
+				   ,A.DTB_PW 
+				   ,A.DTB_CONTENT 
+				   ,A.DTB_FILE 
+				   ,A.DTB_SHAREYN 
+				   ,A.DTB_DELETEYN 
+				   ,A.DTB_INSERTDATE 
+				   ,A.DTB_UPDATEDATE 
+				   ,A.DMB_NO
+				FROM DMY_TIPBOARD A
 	</select>
 	
 	<!-- 팁공유게시판 상세조회 -->
@@ -232,7 +186,7 @@
 				#{dtb_pw, jdbcType=VARCHAR},         -- 비밀번호
 				#{dtb_content, jdbcType=VARCHAR},    -- 내용
 				#{dtb_file, jdbcType=VARCHAR},       -- 파일
-				#{dtb_shareyn},                      -- 공유여부
+				#{dtb_shareyn , jdbcType=VARCHAR},                      -- 공유여부
 				'Y',                                 -- 삭제여부
 				SYSDATE,                             -- 등록일
 				SYSDATE,                             -- 수정일

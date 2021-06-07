@@ -321,30 +321,28 @@ public class DmyTipboardController {
 		try {
 			MultipartRequest mult = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());
 
-			String Dmb_no = mult.getParameter("Dmb_no");
-			String Dtb_category = mult.getParameter("Dtb_category");
-			String Dtb_subject = mult.getParameter("Dtb_subject");
-			String Dmb_id = mult.getParameter("Dmb_id");
-			String Dtb_pw = mult.getParameter("Dtb_pw");
-			String Dtb_shareyn = mult.getParameter("Dtb_shareyn");
-			String Dtb_content = mult.getParameter("Dtb_content");
-			String Dtb_file = "";
+			String dmb_no = mult.getParameter("dmb_no");
+			String dtb_category = mult.getParameter("dtb_category");
+			String dtb_subject = mult.getParameter("dtb_subject");
+			String dtb_pw = mult.getParameter("dtb_pw");
+			String dtb_shareyn = mult.getParameter("dtb_shareyn");
+			String dtb_content = mult.getParameter("dtb_content");
+			String dtb_file = "";
 
-			log.info(Dmb_no);
-			log.info(Dtb_category);
-			log.info(Dtb_subject);
-			log.info(Dmb_id);
-			log.info(Dtb_pw);
-			log.info(Dtb_shareyn);
-			log.info(Dtb_content);
-			log.info(Dtb_file);
-
-			param.setdmb_no(Dmb_no);
-			param.setdtb_category(Dtb_category);
-			param.setdtb_subject(Dtb_subject);
-			param.setdtb_pw(Dtb_pw);
-			param.setdtb_shareyn(Dtb_shareyn);
-			param.setdtb_content(Dtb_content);
+			log.info("dmb_no >>> : " + dmb_no);
+			log.info("dtb_category >>> : " + dtb_category);
+			log.info("dtb_subject >>> : " + dtb_subject);
+			log.info("dtb_pw >>> : " + dtb_pw);
+			log.info("dtb_shareyn >>> : " + dtb_shareyn);
+			log.info("dtb_content >>> : " + dtb_content);
+			log.info("dtb_file >>> : " + dtb_file);
+			param.setdtb_no("0001");
+			param.setdmb_no(dmb_no);
+			param.setdtb_category(dtb_category);
+			param.setdtb_subject(dtb_subject);
+			param.setdtb_pw(dtb_pw);
+			param.setdtb_shareyn(dtb_shareyn);
+			param.setdtb_content(dtb_content);
 
 			Enumeration<String> em = mult.getFileNames();
 
@@ -356,10 +354,10 @@ public class DmyTipboardController {
 			}
 
 			for (int i = 0; i < list.size(); i++) {
-				Dtb_file = list.get(i);
+				dtb_file = list.get(i);
 			}
 
-			param.setdtb_file(Dtb_file);
+			param.setdtb_file(dtb_file);
 
 		} catch (Exception e) {
 			log.info("에러 >>> " + e.getMessage());
@@ -410,26 +408,26 @@ public class DmyTipboardController {
 		try {
 			MultipartRequest mult = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());
 
-			String Dtb_no = mult.getParameter("Dtb_no");
-			String Dmb_no = mult.getParameter("Dmb_no");
-			String Dtb_category = mult.getParameter("Dtb_category");
-			String Dtb_subject = mult.getParameter("Dtb_subject");
-			String Dtb_shareyn = mult.getParameter("Dtb_shareyn");
-			String Dtb_content = mult.getParameter("Dtb_content");
-			String Dtb_file = "";
+			String dtb_no = mult.getParameter("dtb_no");
+			String dmb_no = mult.getParameter("dmb_no");
+			String dtb_category = mult.getParameter("dtb_category");
+			String dtb_subject = mult.getParameter("dtb_subject");
+			String dtb_shareyn = mult.getParameter("dtb_shareyn");
+			String dtb_content = mult.getParameter("dtb_content");
+			String dtb_file = "";
 
-			log.info(Dtb_no);
-			log.info(Dtb_category);
-			log.info(Dtb_subject);
-			log.info(Dtb_shareyn);
-			log.info(Dtb_content);
+			log.info(dtb_no);
+			log.info(dtb_category);
+			log.info(dtb_subject);
+			log.info(dtb_shareyn);
+			log.info(dtb_content);
 
-			param.setdmb_no(Dmb_no);
-			param.setdtb_no(Dtb_no);
-			param.setdtb_category(Dtb_category);
-			param.setdtb_subject(Dtb_subject);
-			param.setdtb_shareyn(Dtb_shareyn);
-			param.setdtb_content(Dtb_content);
+			param.setdmb_no(dmb_no);
+			param.setdtb_no(dtb_no);
+			param.setdtb_category(dtb_category);
+			param.setdtb_subject(dtb_subject);
+			param.setdtb_shareyn(dtb_shareyn);
+			param.setdtb_content(dtb_content);
 
 			Enumeration<String> em = mult.getFileNames();
 
@@ -443,13 +441,13 @@ public class DmyTipboardController {
 			}
 
 			for (int i = 0; i < list.size(); i++) {
-				Dtb_file = list.get(i);
+				dtb_file = list.get(i);
 
-				File f = new File(path + mult.getParameter("old_Dtb_file"));
+				File f = new File(path + mult.getParameter("old_dtb_file"));
 				boolean delete = f.delete();
 				log.info("기존 첨부파일 삭제성공 >>>  delete >>>" + delete);
 			}
-			param.setdtb_file(Dtb_file);
+			param.setdtb_file(dtb_file);
 
 		} catch (Exception e) {
 			log.info("에러 >>> " + e.getMessage());
