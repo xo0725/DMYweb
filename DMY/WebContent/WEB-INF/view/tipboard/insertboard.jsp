@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/tipboard/insertboard.css" rel="stylesheet" />
 <title>게시판 등록</title>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <%
 	String message = (String)request.getAttribute("message");
 	System.out.println("message >>> " + message);

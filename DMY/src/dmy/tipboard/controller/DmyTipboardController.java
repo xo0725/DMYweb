@@ -164,7 +164,7 @@ public class DmyTipboardController {
 				mav.addObject("Dmb_no", Dmb_no);
 
 			} else {
-				message = "占쎄쉭占쎈�∽옙�뵠 筌띾슢利븝옙由븝옙肉�占쎈뮸占쎈빍占쎈뼄. 嚥≪뮄�젃占쎌뵥占쎌뱽 占쎈퉸雅뚯눘苑�占쎌뒄.";
+				message = "세션이 만료되었습니다. 로그인을 해주세요.";
 				mav.addObject("message", message);
 				mav.setViewName("login/loginForm");
 			}
@@ -221,7 +221,7 @@ public class DmyTipboardController {
 				mav.addObject("detailboard", detailboard);
 				mav.setViewName("tipboard/updateboard");
 			} else {
-				message = "�뜝�럡�돪�뜝�럥占썩댙�삕占쎈턄 嶺뚮씭�뒧筌앸툦�삕�뵳釉앹삕�굢占썲뜝�럥裕멨뜝�럥鍮띶뜝�럥堉�. �슖�돦裕꾬옙�쟽�뜝�럩逾ε뜝�럩諭� �뜝�럥�돵�썒�슣�닔�땻占썲뜝�럩�뭵.";
+				message = "세션이 만료되었습니다. 로그인을 해주세요.";
 				mav.addObject("message", message);
 				mav.setViewName("login/loginForm");
 			}
@@ -314,7 +314,7 @@ public class DmyTipboardController {
 		log.info("DmyTipBoardController insertboard >>> ");
 
 		int size = 10 * 1024 * 1024;
-		String path = "C:\\00.KOSMO78\\dmy_work\\dmy_project\\WebContent\\WEB-INF\\file";
+		String path = "C:\\00.KOSMO78\\100.project\\DMYweb\\DMY\\WebContent\\WEB-INF\\file";
 
 		log.info("request.getContentType()" + request.getContentType());
 
@@ -384,7 +384,7 @@ public class DmyTipboardController {
 	public ModelAndView boardFileDownload(@ModelAttribute DmyTipBoardVO param) {
 		log.info("DmyTipBoardController boardFileDownload >>> 다운로드 진행중 페이지로 이동");
 
-		String path = "C:\\00.KOSMO78\\dmy_work\\dmy_project\\WebContent\\WEB-INF\\file";
+		String path = "C:\\00.KOSMO78\\100.project\\DMYweb\\DMY\\WebContent\\WEB-INF\\file";
 
 		String file = param.getdtb_file();
 		log.info("다운로드 할 파일명 >>> file : " + file);
@@ -403,7 +403,7 @@ public class DmyTipboardController {
 	public String updateboard(@ModelAttribute DmyTipBoardVO param, HttpServletRequest request) {
 		log.info("DmyTipBoardController updateboard >>>");
 		int size = 10 * 1024 * 1024;
-		String path = "C:\\00.KOSMO78\\dmy_work\\dmy_project\\WebContent\\WEB-INF\\file";
+		String path = "C:\\00.KOSMO78\\100.project\\DMYweb\\DMY\\WebContent\\WEB-INF\\file";
 
 		log.info("request.getContentType()" + request.getContentType());
 
@@ -478,7 +478,7 @@ public class DmyTipboardController {
 		log.info("delete :: param.getDtb_no() >>>" + param.getdtb_no());
 
 		int size = 10 * 1024 * 1024;
-		String path = "C:\\00.KOSMO78\\dmy_work\\dmy_project\\WebContent\\WEB-INF\\file";
+		String path = "C:\\00.KOSMO78\\100.project\\DMYweb\\DMY\\WebContent\\WEB-INF\\file";
 
 		try {
 			MultipartRequest mult = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());

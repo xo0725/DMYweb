@@ -8,10 +8,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>팁공유게시판 목록</title>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
 	$(function(){
 		$("#insertForm").click(function(){
-			location.href="/tipboard/insertForm.dmy";
+			location.href="insertForm.dmy";
 		});
 		
 		$(".goDetail").click(function(){
@@ -29,6 +30,7 @@
 </head>
 <body>
 <body>
+
 <!-- Content -->
 <section>
 	<div class="container">
