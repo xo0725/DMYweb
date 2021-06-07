@@ -30,7 +30,7 @@
    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
       <property name="basePackage">
          <value>
-            dmy.notice.**.dao
+            dmy.**.dao
          </value>
       </property>
    </bean>

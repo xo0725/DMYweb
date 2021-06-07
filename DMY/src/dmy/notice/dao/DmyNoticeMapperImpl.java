@@ -1,28 +1,23 @@
-package dmy.notice.service;
+package dmy.notice.dao;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.apache.log4j.Logger;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.stereotype.Repository;
 
-import dmy.notice.dao.DmyNoticeMapper;
 import dmy.notice.vo.DmyNoticeVO;
 
-@Service
-@Transactional
-public class DmyNoticeServiceImpl implements DmyNoticeService {
+@Repository
+public class DmyNoticeMapperImpl extends SqlSessionDaoSupport implements DmyNoticeMapper {
 
-	@Autowired
-	private DmyNoticeMapper dmyNoticeMapper;
+	private static Logger log = Logger.getLogger(DmyNoticeMapperImpl.class);
 	
 	@Override
-	public List<DmyNoticeVO> noticeList(DmyNoticeVO dnvo) {
-		List<DmyNoticeVO> noticeList = null;
-		System.out.println("service");
-		noticeList = dmyNoticeMapper.noticeList(dnvo);
-		
-		return noticeList;
+	public List<DmyNoticeVO> noticeList(DmyNoticeVO param) {
+		List<DmyNoticeVO> list = getSqlSession().selectList("noticeList");
+		log.info(list);
+		return list;
 	}
 
 	@Override

@@ -51,7 +51,7 @@ public class DmyNoticeController {
 		return mv;
 	}
 	
-	@RequestMapping("/noticeListAll")
+	@RequestMapping("noticeListAll")
 	public String noticeListAll() {
 		
 		log.info("noticeListAll ¡¯¿‘");
