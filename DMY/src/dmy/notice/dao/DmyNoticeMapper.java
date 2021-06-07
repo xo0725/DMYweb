@@ -1,10 +1,10 @@
-package dmy.notice.service;
+package dmy.notice.dao;
 
 import java.util.List;
 
 import dmy.notice.vo.DmyNoticeVO;
 
-public interface DmyNoticeService {
+public interface DmyNoticeMapper {
 	public List<DmyNoticeVO> noticeList(DmyNoticeVO dnvo);
 	public int noitceInsert(DmyNoticeVO dnvo);
 	public DmyNoticeVO noticeListDetail(DmyNoticeVO param);

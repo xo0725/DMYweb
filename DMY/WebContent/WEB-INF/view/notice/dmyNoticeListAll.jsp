@@ -18,9 +18,29 @@
 	boolean keywordBool = false;
 	boolean searchBool = false;
 	
+	DmyNoticeVO searchVO = (DmyNoticeVO)request.getAttribute("searchVO");
+	
+	keywordBool = searchVO.getKeyword()!=null&&searchVO.getKeyword()!="";
+	searchBool = searchVO.getSearchFilter()!=null&&searchVO.getSearchFilter()!="";
+
 %>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<meta name="viewprot" content="width=device-width, initial-scale=1.0" />
+<script type="text/javascript">
+$(function(){
+	
+	$("#serchbtn").click(function(){
+		console.log("검색 버튼 >>> 전체조회  컨트롤러로 이동")
+		
+		$("#boardForm").attr({
+			"method":"POST",
+			"action":"/listNotice.dmy"
+		}).submit();
+	});
+	
+})
+</script>
 </head>
 <body>
 <section>
