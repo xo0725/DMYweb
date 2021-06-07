@@ -38,5 +38,4 @@
 		<property name="suffix" value=".jsp" />	
 	</bean>		 
 	
-	<import resource="servlet-context.xml"/>        
 </beans>
