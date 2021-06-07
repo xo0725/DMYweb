@@ -1,57 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans 	xmlns="http://www.springframework.org/schema/beans"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xmlns:context="http://www.springframework.org/schema/context"
-		xmlns:tx="http://www.springframework.org/schema/tx"
-		xsi:schemaLocation="http://www.springframework.org/schema/beans 
-							http://www.springframework.org/schema/beans/spring-beans.xsd
-							http://www.springframework.org/schema/context 
-							http://www.springframework.org/schema/context/spring-context.xsd
-							http://www.springframework.org/schema/tx 
-							http://www.springframework.org/schema/tx/spring-tx.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:context="http://www.springframework.org/schema/context"
+      xmlns:tx="http://www.springframework.org/schema/tx"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/tx
+                        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<!-- 
-		현재 서버(탐캣) 에서 datasource 찾아와서  DB 연결 
-		java:comp/env : Java Naming Directory Interface 의 환경변수 이름 : JNDI 
-		jdbc/Oralce11g_orclHBE00 : dataSource 이름 
-	-->
-	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-		<property name="jndiName" value="java:comp/env/jdbc/Oracle11g_orclSTH22"></property>
-	</bean>
-	
-	<!-- 마이바티스 쿼리문 찾아서 연결하기  -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource"></property>	 	
-		<property name="configLocation" value="classpath:/mybatisconfig/mybatis-config.xml"></property>		
-		<property name="mapperLocations" value="classpath:/mybatisquery/*.xml"></property>				
-	</bean>
-	
-	<!-- 트랜잭션 처리 : spring-mybatis 에서는 개발자가 tx 처리에 관여하지 않는다. -->
-	<bean id="transactionManager" 
-	      class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-			<property name="dataSource" ref="dataSource"></property>
-	</bean>
-	
-	<!-- DAO 또는 Mapper 찾기  -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage"><value>dmy.**.dao</value></property>
-	</bean>
+   <!-- context.xml의 datasource를 가져옴 -->
+   <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+      <property name="jndiName" value="java:comp/env/jdbc/Oracle11g_STH22"/>
+   </bean>
+   
+   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+           <property name="dataSource" ref="dataSource" />   
+           <property name="configLocation" value="classpath:sqlMapConfig/mybatis_config.xml" />        
+           <property name="mapperLocations" value="classpath:sqlMap/*.xml" />
+   </bean>      
+   
+   <!-- transaction 연결  -->
+   <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <property name="dataSource" ref="dataSource"/>
+   </bean>
+   
+   <!-- Mapper -->
+   <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+      <property name="basePackage">
+         <value>
+            dmy.notice.**.dao
+         </value>
+      </property>
+   </bean>
+   
 </beans>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

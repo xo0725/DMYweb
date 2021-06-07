@@ -22,7 +22,7 @@
     <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
 
   	<!-- ★DBConnection★ -->
-	<Resource    auth="Container"              
+	<Resource auth="Container"              
              maxActive="100" 
              maxIdle="30" 
              maxWait="10000"  

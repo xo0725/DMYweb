@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +17,8 @@ import dmy.notice.vo.DmyNoticeVO;
 
 @Controller
 public class DmyNoticeController {
+	
+	private static Logger log = Logger.getLogger(DmyNoticeController.class);
 	
 	@Autowired
 	private DmyNoticeService dmyNoticeService;
@@ -48,10 +51,10 @@ public class DmyNoticeController {
 		return mv;
 	}
 	
-	@RequestMapping("noticeListAll")
+	@RequestMapping("/noticeListAll")
 	public String noticeListAll() {
 		
-		System.out.println("noticeListAll 진입");
+		log.info("noticeListAll 진입");
 		
 		return "notice/dmyNoticeListAll";
 	}

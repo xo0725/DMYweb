@@ -13,8 +13,12 @@ import dmy.notice.vo.DmyNoticeVO;
 @Transactional
 public class DmyNoticeServiceImpl implements DmyNoticeService {
 
-	@Autowired
-	private DmyNoticeMapper dmyNoticeMapper;
+	final private DmyNoticeMapper dmyNoticeMapper;
+	
+	@Autowired(required=false)
+	public DmyNoticeServiceImpl(DmyNoticeMapper dmyNoticeMapper) {
+		this.dmyNoticeMapper = dmyNoticeMapper;
+	}
 	
 	@Override
 	public List<DmyNoticeVO> noticeList(DmyNoticeVO dnvo) {
