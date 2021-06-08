@@ -49,6 +49,18 @@ $(function(){
         $("#boardForm").submit();
     });
 	
+	$(".goDetail").click(function(){
+		
+		var dnt_no = $(this).parents().attr("data-num");
+		
+		$("#dnt_no").val(dnt_no);
+		$("#detailForm").attr({
+			"method":"POST",
+			"action":"noticeListDetail.dmy"
+		});
+		$("#detailForm").submit();		
+	})	
+	
 })
 </script>
 
@@ -70,8 +82,8 @@ $(function(){
 				<div class="sub_subject" sytle="">
 					<select name="searchFilter" id="searchFilter" sytle="border:none; border-right: 0px; border-top: 0px; color: var(--black); width: 60; height: 36; background-color: #EFEFEF;">
 						<option value="제목">제목</option>
-						<option value="작성자">작성자</option>
-                        <option value="제목+작성자">제목+작성자</option>
+						<option value="내용">내용</option>
+                        <option value="제목+내용">제목+내용</option>
                     </select>
 				</div>
 			</div>
@@ -99,8 +111,9 @@ $(function(){
 	</form>
 	<div class="board" style="padding-bottom: 24%;">
     	<div class="board_info">
-        	<div class="info info_num" style="width: 20%;">글번호</div>
-	        <div class="info info_category" style="width: 60%;">글제목</div>
+        	<div class="info info_num" style="width: 10%;">글번호</div>
+	        <div class="info info_category" style="width: 30%;">글제목</div>
+	        <div class="info info_content" style="width: 60%;">내용</div>
 	        <div class="info info_author" style="width: 10%;">작성일</div>
 	        <div class="info info_author" style="width: 10%;">조회수</div>
 	</div>
@@ -116,8 +129,9 @@ $(function(){
 %>
 
 	<div class="board_content" data-num="<%=param.getDnt_no()%>">
-	    <div class="content content_num" style="width: 20%;"><%=param.getDnt_no()%></div>
-	    <div class="goDetail" style="width: 70%; padding: 10px 0px; "><%=param.getDnt_subject()%></div>      
+	    <div class="content content_num" style="width: 10%;"><%=param.getDnt_no()%></div>
+	    <div class="goDetail" style="width: 30%; padding: 10px 0px; "><%=param.getDnt_subject()%></div>   
+	    <div class="content content_author" style="width: 60%; padding: 10px 0px;"><%=param.getDnt_content()%></div>      
 	    <div class="content content_author" style="width: 10%;"><%=param.getDnt_insertdate()%></div>
 	    <div class="content content_author" style="width: 10%;"><%=param.getDnt_viewcnt()%></div>
 	</div>

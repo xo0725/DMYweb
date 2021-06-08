@@ -17,7 +17,7 @@
       Directory Interface의 환경변수 이름 : JNDI jdbc/Oracle11g_orclLTH00 : ddataSource 이름 
    -->
    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-      <property name="jndiName" value="java:comp/env/jdbc/Oracle11g_orclCYE00"></property>
+      <property name="jndiName" value="java:comp/env/jdbc/Oracle11g_orclSTH22"></property>
    </bean>
    
    <!-- Mybatis 세팅 -->      
@@ -41,7 +41,7 @@
    
    <!-- DAO 또는 Mapper 찾기 -->
    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-      <property name="basePackage"><value>dmy.notice.**.dao</value></property>
+      <property name="basePackage"><value>dmy.**.dao</value></property>
    </bean>
 </beans>
                

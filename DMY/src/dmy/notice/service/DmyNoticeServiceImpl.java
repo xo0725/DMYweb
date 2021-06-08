@@ -36,26 +36,27 @@ public class DmyNoticeServiceImpl implements DmyNoticeService {
 
 	@Override
 	public DmyNoticeVO noticeListDetail(DmyNoticeVO param) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("ServiceImpl noticeListDetail 진입 >>>");
+		
+		return dmyNoticeMapper.noticeListDetail(param);
 	}
 
 	@Override
 	public int noticeUpdate(DmyNoticeVO param) {
-		// TODO Auto-generated method stub
-		return 0;
+		log.info("serviceImple noticeUpdate 호출성공 >>> : ");
+		return dmyNoticeMapper.noticeUpdate(param);
 	}
 
 	@Override
 	public int noticeDelete(DmyNoticeVO param) {
-		// TODO Auto-generated method stub
-		return 0;
+		return dmyNoticeMapper.noticeDelete(param);
 	}
 
 	@Override
 	public int noticeViewCnt(DmyNoticeVO param) {
-		// TODO Auto-generated method stub
-		return 0;
+		log.info("ServiceImpl noticeViewCnt 진입 >>>");
+		
+		return dmyNoticeMapper.noticeViewCnt(param);
 	}
 
 }

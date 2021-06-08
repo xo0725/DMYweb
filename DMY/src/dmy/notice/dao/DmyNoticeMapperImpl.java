@@ -21,6 +21,7 @@ public class DmyNoticeMapperImpl implements DmyNoticeMapper {
 	public List<DmyNoticeVO> noticeList(DmyNoticeVO param) {
 		List<DmyNoticeVO> list = sqlSession.selectList("noticeList");
 		log.info(list);
+		
 		return list;
 	}
 
@@ -31,26 +32,24 @@ public class DmyNoticeMapperImpl implements DmyNoticeMapper {
 
 	@Override
 	public DmyNoticeVO noticeListDetail(DmyNoticeVO param) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("mapperImpl noticeListDetail ÁøÀÔ >>>> ");
+		
+		return (DmyNoticeVO)sqlSession.selectOne("noticeListDetail");
 	}
 
 	@Override
 	public int noticeUpdate(DmyNoticeVO param) {
-		// TODO Auto-generated method stub
-		return 0;
+		return (int)sqlSession.update("noticeUpdate");
 	}
 
 	@Override
 	public int noticeDelete(DmyNoticeVO param) {
-		// TODO Auto-generated method stub
-		return 0;
+		return (int)sqlSession.update("noticeDelete");
 	}
 
 	@Override
 	public int noticeViewCnt(DmyNoticeVO param) {
-		// TODO Auto-generated method stub
-		return 0;
+		return (int)sqlSession.update("noticeViewCount");
 	}
 
 }

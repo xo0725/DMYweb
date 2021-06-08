@@ -27,9 +27,9 @@
              maxIdle="30" 
              maxWait="10000"  
              type="javax.sql.DataSource" 
-             name="jdbc/Oracle11g_orclCYE00"
+             name="jdbc/Oracle11g_orclSTH22"
              driverClassName="oracle.jdbc.driver.OracleDriver"
-             url="jdbc:oracle:thin:@127.0.0.1:1521:orclCYE00"
+             url="jdbc:oracle:thin:@127.0.0.1:1521:orclSTH22"
              username="scott" 
              password="tiger" />
 

@@ -15,10 +15,26 @@
 			A.DNT_VIEWCNT,
 			A.DNT_INSERTDATE
 		FROM DMY_NOTICE A
+			<where>
+				A.DNT_DELETEYN = 'Y'
+				<if test="searchFilter=='제목'">
+					<![CDATA[AND A.DNT_SUBJECT LIKE '%'||#{keyword}||'%']]>
+				</if>
+				<if test="searchFilter=='내용'">
+					<![CDATA[AND A.DNT_CONTENT LIKE '%'||#{keyword}||'%']]>
+				</if>
+				<if test="searchFilter=='제목+내용'">
+				<![CDATA[AND A.DNT_SUBJECT LIKE '%'||#{keyword}||'%']]>
+				<![CDATA[OR A.DNT_CONTENT LIKE '%'||#{keyword}||'%']]>
+				</if>
+				<if test="dnt_content != null and dnt_content !=''">
+					AND A.DNT_CONTENT = #{dnt_content}
+				</if>
+			</where>
 		ORDER BY 1
 	</select>
 	
-	<insert id="noticeInsert" parameterType="DmyNoticeVO">
+	<insert id="noticeInsert" parameterType="dmyNoticeVO">
 		<selectKey keyProperty="dnt_no" resultType="String" order="BEFORE">
 			SELECT 'NT'||LPAD((
 			SELECT /*+ INDEX_DESC(NOTICE_NO_PK) */        
@@ -47,4 +63,50 @@
 		'Y'
 		)		
 	</insert>
+	
+	<!-- 글 상세 정보 -->
+	<select id="noticeListDetail" parameterType="dmyNoticeVO" resultType="dmyNoticeVO">
+		SELECT
+				DNT_NO AS DNT_NO,
+				DNT_SUBJECT AS DNT_SUBJECT,
+				DNT_CONTENT AS DNT_CONTENT,
+				DNT_FILE AS DNT_FILE,
+				DNT_VIEWCNT AS DNT_VIEWCNT,
+				DNT_DELETEYN AS DNT_DELETEYN,
+				TO_CHAR(DNT_INSERTDATE,'YYYY-MM-DD') AS DNT_INSERTDATE,
+				TO_CHAR(DNT_UPDATEDATE,'YYYY-MM-DD') AS DNT_UPDATEDATE
+			FROM DMY_NOTICE
+			WHERE DNT_NO = #{dnt_no}
+	</select>
+	
+	<!-- 게시글 조회수 -->
+	<update id="noticeViewCnt" parameterType="dmyNoticeVO">
+		UPDATE DMY_NOTICE A
+		SET A.DNT_VIEWCNT = A.DNT_VIEWCNT + 1
+			, A.DNT_UPDATEDATE = SYSDATE
+		WHERE A.DNT_NO = #{dnt_no}
+	</update>
+	
+	<!-- 수정 -->
+	<update id="noticeUpdate" parameterType="dmyNoticeVO">
+		UPDATE
+			DMY_NOTICE
+		SET
+			DNT_SUBJECT = #{dnt_subject},
+			DNT_CONTENT = #{dnt_content},
+			DNT_FILE = #{dnt_file},
+			DNT_UPDATEDATE = SYSDATE
+		WHERE
+			DNT_NO = #{dnt_no}
+	</update>
+	
+	<!-- 삭제 -->
+	<update id="noticeDelete" parameterType="dmyNoticeVO">
+		UPDATE
+			DMY_NOTICE
+		SET
+			DNT_DELETEYN = 'N'
+		WHERE
+			DNT_NO = #{dnt_no}
+	</update>
 </mapper>
