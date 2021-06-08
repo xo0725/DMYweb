@@ -180,7 +180,7 @@ public class DmyTipboardController {
 			} else {
 				message = "세션이 만료되었습니다. 로그인을 해주세요.";
 				mav.addObject("message", message);
-				mav.setViewName("login/loginForm");
+				
 			}
 		}
 		mav.setViewName("tipboard/insertboard");
@@ -237,7 +237,7 @@ public class DmyTipboardController {
 			} else {
 				message = "세션이 만료되었습니다. 로그인을 해주세요.";
 				mav.addObject("message", message);
-				mav.setViewName("login/loginForm");
+				
 			}
 		}
 		mav.setViewName("tipboard/updateboard");
@@ -263,7 +263,7 @@ public class DmyTipboardController {
 			} else {
 				message = "세션이 만료되었습니다. 로그인을 해주세요.";
 				mav.addObject("message", message);
-				mav.setViewName("login/loginForm");
+				
 			}
 		}
 
@@ -315,7 +315,7 @@ public class DmyTipboardController {
 				mav.setViewName("tipboard/detailboard");
 			} else {
 				mav.addObject("result","세션이 만료되었습니다. 로그인을 해주세요.");
-				mav.setViewName("login/loginForm");
+				
 			}
 		}
 		return mav;

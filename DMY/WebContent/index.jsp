@@ -11,6 +11,7 @@
 <a href="insertForm.dmy">게시글 등록</a>
 <a href="listallboard.dmy">게시글 전체조회</a>
 <a href="listboard.dmy">게시글 조회</a>
+<a href="detailboard.dmy">게시글 수정</a>
 
 </body>
 </html>

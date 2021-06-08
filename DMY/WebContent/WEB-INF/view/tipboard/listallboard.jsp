@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <link href="css/tipboard/listallboard.css" rel="stylesheet" />
 <title>팁공유게시판 전체목록</title>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
 
 	$(document).ready(function(){
@@ -155,6 +156,7 @@
 
 		   <div class="board_content" data-no ="<%= param.getdtb_no() %>">
 				<div class="content content_num" style="width: 8%;"><%= param.getdtb_no() %></div>
+				<div class="content content_memnum" style="width: 11%;"><%= param.getdmb_no() %></div>
 				<div class="content content_memnum" style="width: 11%;"><%= param.getdmb_no() %></div>
 				<div class="content content_category" style="width: 8%;"><%=param.getdtb_category() %></div>
 				<div class="content content_subject goDetail" style="width: 25%;"><%= param.getdtb_subject() %></div>

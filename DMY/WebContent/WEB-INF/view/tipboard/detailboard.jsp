@@ -27,7 +27,7 @@ $(document).ready(function(){
 		
 		 $("#buttonform").attr({
 			 
-			  "action":"updatepwCheck.Dmy"
+			  "action":"updatepwCheck.dmy"
 		  });
 		  $("#buttonform").submit();
 	});
@@ -37,7 +37,7 @@ $(document).ready(function(){
 		
 		 $("#buttonform").attr({
 			  
-			  "action":"deletepwCheck.Dmy"
+			  "action":"deletepwCheck.dmy"
 		  });
 		  $("#buttonform").submit();
 	});// end of deleteForm click
@@ -45,7 +45,7 @@ $(document).ready(function(){
 	//목록버튼클릭이벤트
 	$("#listForm").click(function(){
 		
-		location.href="lidtboard.Dmy";
+		location.href="lidtboard.dmy";
 	});//end of listForm click
 	
 
@@ -128,7 +128,7 @@ $(document).ready(function(){
 function goDownLoad(){
 	$("#detailForm").attr({
 		"method" : "post",
-		"action" : "boardFileDownload.Dmy"
+		"action" : "boardFileDownload.dmy"
 	}).submit();
 }
 </script>
