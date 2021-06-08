@@ -6,7 +6,7 @@
 	<typeAliases>
 	
 	<!-- 신태환 VO -->
-	<typeAlias type="dmy.notice.vo.DmyNoticeVO" alias="DmyNoticeVO"/>
+	<typeAlias type="dmy.notice.vo.DmyNoticeVO" alias="dmyNoticeVO"/>
 	
 	</typeAliases>
 </configuration>	

@@ -2,7 +2,7 @@
     <wb-module deploy-name="DMY">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="DMY"/>
         <property name="java-output-path" value="/DMY/WebContent/WEB-INF/classes"/>
+        <property name="context-root" value="DMY"/>
     </wb-module>
 </project-modules>

@@ -2,6 +2,7 @@ package dmy.notice.service;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,22 +14,24 @@ import dmy.notice.vo.DmyNoticeVO;
 @Transactional
 public class DmyNoticeServiceImpl implements DmyNoticeService {
 
+	Logger log = Logger.getLogger(DmyNoticeServiceImpl.class);
+	
 	@Autowired
 	private DmyNoticeMapper dmyNoticeMapper;
 	
 	@Override
 	public List<DmyNoticeVO> noticeList(DmyNoticeVO dnvo) {
 		List<DmyNoticeVO> noticeList = null;
-		System.out.println("service");
 		noticeList = dmyNoticeMapper.noticeList(dnvo);
 		
 		return noticeList;
 	}
 
 	@Override
-	public int noitceInsert(DmyNoticeVO dnvo) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int noticeInsert(DmyNoticeVO dnvo) {
+		log.info("serviceImple noticeInsert 호출성공 >>> : ");
+		
+		return dmyNoticeMapper.noticeInsert(dnvo);
 	}
 
 	@Override

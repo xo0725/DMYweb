@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace = "dmy.notice.dao.DmyNoticeMapper">
+
+	
+	<!-- 게시물 전체 조회 -->
+	<select id="noticeList" parameterType="dmyNoticeVO" resultType="dmyNoticeVO">
+		SELECT
+			A.DNT_NO,
+			A.DNT_SUBJECT,
+			A.DNT_CONTENT,
+			A.DNT_FILE,
+			A.DNT_VIEWCNT,
+			A.DNT_INSERTDATE
+		FROM DMY_NOTICE A
+		ORDER BY 1
+	</select>
+	
+	<insert id="noticeInsert" parameterType="DmyNoticeVO">
+		<selectKey keyProperty="dnt_no" resultType="String" order="BEFORE">
+			SELECT 'NT'||LPAD((
+			SELECT /*+ INDEX_DESC(NOTICE_NO_PK) */        
+			NVL(MAX(SUBSTR(DNT_NO,-4)),0)+1 COMMNO  
+			  FROM DMY_NOTICE A 
+			  ),4,'0') FROM DUAL
+		</selectKey>
+		INSERT INTO DMY_NOTICE 
+		(DNT_NO,
+		DNT_SUBJECT,
+		DNT_CONTENT,
+        DNT_FILE,
+        DNT_VIEWCNT,
+        DNT_INSERTDATE,
+        DNT_UPDATEDATE,
+        DNT_DELETEYN
+        )
+		VALUES
+		(#{dnt_no},
+		#{dnt_subject},
+		#{dnt_content},
+		#{dnt_file},
+		0,
+		SYSDATE, 
+		SYSDATE, 
+		'Y'
+		)		
+	</insert>
+</mapper>

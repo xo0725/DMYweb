@@ -1,0 +1,203 @@
+@charset "UTF-8";
+
+/**************************************게시판글쓰기*******************************************/
+section form
+{
+  padding-top: 5px;
+  padding-bottom: 78px;
+  padding-left: 37px;
+  padding-right: 60px;
+}
+form .insert
+{
+  margin: 12px;
+}
+
+.insertboard input
+{
+  font-family: var(--font-family-noto);
+}
+
+/*카테고리 공유부분*/
+form .insert_category_share
+{
+  display: flex;
+  
+}
+form .insert_category_share .insert_category
+{
+  margin-right: 25px;
+}
+form .insert_category_share .insert_category select
+{
+  width: 80px;
+  height: 30px;
+  font-family: var(--font-family-noto);
+}
+form .insert_category_share .insert_share
+{
+  vertical-align: middle;
+}
+/*비밀번호 부분*/
+form .insert_password input
+{
+  width: 230px;
+  height: 35px;
+  border: 1px solid #cecdce;
+  font-family: var(--font-family-noto);
+}
+/*제목 부분*/
+form .insert_subject input
+{
+  width: 725px;
+  height: 35px;
+  border: 1px solid #cecdce;
+  font-family: var(--font-family-noto);
+}
+
+/*내용 부분*/
+form .insert_content textarea
+{
+  font-family: var(--font-family-noto);
+  border: 1px solid #cecdce;
+  padding: 8px;
+  width:1000px; 
+	height:375px; 
+  resize: none;
+}
+
+/*파일 업로드 버튼 부분*/
+form .insert_file label 
+{ 
+  display: inline-block; 
+  padding: .5em .75em; 
+  color: var(--white); 
+  font-size: inherit; 
+  line-height: normal; 
+  vertical-align: middle; 
+  background-color: #5cb85c; 
+  cursor: pointer; 
+  border: 1px solid #ebebeb; 
+  border-bottom-color: #e2e2e2; 
+  border-radius: .25em; 
+} 
+
+form .insert_file input[type="file"] 
+{ /* 파일 필드 숨기기 */ 
+  position: absolute; 
+  width: 1px; 
+  height: 1px; 
+  padding: 0; 
+  margin: -1px; 
+  overflow: hidden; 
+  clip:rect(0,0,0,0); border: 0; 
+}
+
+form .insert_file .upload-name 
+{ 
+  display: inline-block; 
+  padding: .5em .75em; /* label의 패딩값과 일치 */ 
+  font-size: inherit; 
+  font-family: inherit; 
+  line-height: normal; 
+  vertical-align: middle; 
+  background-color: #f5f5f5; 
+  border: 1px solid #ebebeb; 
+  border-bottom-color: #e2e2e2; 
+  border-radius: .25em; 
+  -webkit-appearance: none; /* 네이티브 외형 감추기 */ 
+  -moz-appearance: none; appearance: none; 
+}
+
+
+/*이미지 미리보기*/
+form .insert_file .upload-display 
+{ /* 이미지가 표시될 지역 */ 
+  margin-bottom: 5px; 
+}
+
+@media(min-width: 768px) { 
+  form .insert_file .upload-display { 
+    display: inline-block; 
+    margin-right: 5px; 
+    margin-bottom: 0; 
+  } 
+}
+
+form .insert_file .upload-thumb-wrap 
+{ /* 추가될 이미지를 감싸는 요소 */ 
+  display: inline-block; 
+  width: 54px; 
+  padding: 2px; 
+  vertical-align: middle; 
+  border: 1px solid #ddd; 
+  border-radius: 5px; 
+  background-color: #fff; 
+}
+
+form .insert_file .upload-display img 
+{ /* 추가될 이미지 */ 
+  display: block; 
+  max-width: 100%; 
+  width: 100% \9; 
+  height: auto; 
+}
+
+/*버튼 부분*/
+form .insert_subbtn
+{
+  padding-left: 90px;
+  margin-top: 50px;
+}
+
+form .insert_subbtn input[type=button], input[type=reset]
+{
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #E67F85;
+  color: var(--white);
+  border-style: none;
+  margin: 0px 10px;
+  width: 70px;
+  height: 30px;
+}
+
+#portfolio .container-fluid, #portfolio .container-sm, #portfolio .container-md, #portfolio .container-lg, #portfolio .container-xl {
+  max-width: 1920px;
+}
+#portfolio .container-fluid .portfolio-box, #portfolio .container-sm .portfolio-box, #portfolio .container-md .portfolio-box, #portfolio .container-lg .portfolio-box, #portfolio .container-xl .portfolio-box {
+  position: relative;
+  display: block;
+}
+#portfolio .container-fluid .portfolio-box .portfolio-box-caption, #portfolio .container-sm .portfolio-box .portfolio-box-caption, #portfolio .container-md .portfolio-box .portfolio-box-caption, #portfolio .container-lg .portfolio-box .portfolio-box-caption, #portfolio .container-xl .portfolio-box .portfolio-box-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  opacity: 0;
+  color: #fff;
+  background: rgba(244, 98, 58, 0.9);
+  transition: opacity 0.25s ease;
+  text-align: center;
+}
+#portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-sm .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-md .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-lg .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-xl .portfolio-box .portfolio-box-caption .project-category {
+  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+#portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-sm .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-md .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-lg .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-xl .portfolio-box .portfolio-box-caption .project-name {
+  font-size: 1.2rem;
+}
+#portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption {
+  opacity: 1;
+}
+
+.text-white-75 {
+  color: rgba(255, 255, 255, 0.75);
+}

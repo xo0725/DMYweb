@@ -1,38 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:context="http://www.springframework.org/schema/context"
-      xmlns:tx="http://www.springframework.org/schema/tx"
-      xsi:schemaLocation="http://www.springframework.org/schema/beans 
-                        http://www.springframework.org/schema/beans/spring-beans.xsd
-                        http://www.springframework.org/schema/context
-                        http://www.springframework.org/schema/context/spring-context.xsd
-                        http://www.springframework.org/schema/tx
-                        http://www.springframework.org/schema/tx/spring-tx.xsd">
-
-   <!-- context.xml의 datasource를 가져옴 -->
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:tx="http://www.springframework.org/schema/tx"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                  http://www.springframework.org/schema/beans/spring-beans.xsd
+                  http://www.springframework.org/schema/context
+                  http://www.springframework.org/schema/context/spring-context.xsd
+                  http://www.springframework.org/schema/tx
+                  http://www.springframework.org/schema/tx/spring-tx.xsd">
+         
+   <!-- DB Connection을 하기 위한 bean을 셋팅 -->
+   <!-- Datasource => DB연결정보라고 수업시간에 선생님이 알려주었다. -->
+   
+   <!-- 현재 서버(톰캣)에서 datasource 찾아와서 DB 연결 // 환경변수 java:comp/env : Java Naming 
+      Directory Interface의 환경변수 이름 : JNDI jdbc/Oracle11g_orclLTH00 : ddataSource 이름 
+   -->
    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-      <property name="jndiName" value="java:comp/env/jdbc/Oracle11g_STH22"/>
+      <property name="jndiName" value="java:comp/env/jdbc/Oracle11g_orclCYE00"></property>
    </bean>
    
+   <!-- Mybatis 세팅 -->      
+   <!-- Mybatis란 개발자가 SQL을 지정해놓은 것을 의미한다.
+       즉, JDBC로 처리하는 수많은 코드와 파라미터 설정과 결과를 맵핑해준다.
+      -> 그냥 개발자(우리)가 쉽게 코딩하고 오라클DB와 연결을 하기 위해서 쓰는 것이다.
+   -->
    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-           <property name="dataSource" ref="dataSource" />   
-           <property name="configLocation" value="classpath:sqlMapConfig/mybatis_config.xml" />        
-           <property name="mapperLocations" value="classpath:sqlMap/*.xml" />
-   </bean>      
+      <property name="dataSource" ref="dataSource"></property>
+      <!-- 아래 2줄의 속성값의 경로가 틀리면 안된다!!!! -->
+      <property name="configLocation" value="classpath:/sqlMapConfig/mybatis_config.xml"></property>
+      <property name="mapperLocations" value="classpath*:/sqlMap/*.xml"></property>
+   </bean>   
    
-   <!-- transaction 연결  -->
+   <!-- 트랙잭션 처리 : spring-mybatis에서는 개발자가 tx 처리에 관여하지 않는다. 
+       즉, 우리 같은 초보 개발자들은 트랙잭션 아래에 코딩과 같이 직접 하는게 아니라 회사에서 받아서 쓴다.
+   -->      
    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-      <property name="dataSource" ref="dataSource"/>
+      <property name="dataSource" ref="dataSource"></property>
    </bean>
    
-   <!-- Mapper -->
+   <!-- DAO 또는 Mapper 찾기 -->
    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-      <property name="basePackage">
-         <value>
-            dmy.**.dao
-         </value>
-      </property>
+      <property name="basePackage"><value>dmy.notice.**.dao</value></property>
    </bean>
-   
 </beans>
+               

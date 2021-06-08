@@ -1,0 +1,155 @@
+@charset "UTF-8";
+/****************************************게시판 부분***************************************************/
+/*****카테고리, 제목(+작성자), 검색부분*****/
+form,
+form input
+{
+    font-family: var(--font-family-noto);
+    font-size: 14px;
+}
+
+form .sub
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+ 
+}
+form .sub .sub_category_subject
+{
+    display: flex;
+}
+form .sub .sub_category_subject .sub_category
+{
+    margin-right: 10px;
+}
+form .sub .sub_search input[type=text]
+{
+    width: 230px;
+    vertical-align: middle;
+}
+form .sub .sub_search input[type=button]
+{
+    width: 60px;
+    height: 27px;
+    vertical-align: middle;
+    padding: 3px 0px;
+    border-style: none;
+}
+
+form .sub_total_insertbtn
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+form .sub_insertbtn
+{
+    width: 70px;
+    height: 30px;
+    border-style: none;
+}
+
+/*****게시판 부분*****/
+section .board
+{
+    width: 100%;
+    height: auto;
+    padding-bottom: 80%;
+}
+/*게시판 info*/
+section .board .board_info
+{
+    font-family: var(--font-family-noto);
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    background-color: var(--orange);
+    display: flex;
+}
+section .board .info
+{
+    border-top: 1px solid rgb(163, 163, 163);
+    border-bottom: 1px solid rgb(163, 163, 163);
+    padding: 13px 0px;
+    background-color: #F4F6F9;
+}
+/*게시판 content*/
+section .board .board_content
+{
+    font-family: var(--font-family-noto);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    background-color: var(--white);
+    
+}
+section .board .board_content:hover
+{
+	background-color: #E0EAF9;
+	color: var(--gray);
+}
+section .board .content
+{
+    padding: 10px 0px;
+}
+section .board .content_subject
+{
+	cursor: pointer;
+}
+section .board .content_subject:hover
+{
+	text-decoration: underline;
+}
+section .board_nondate
+{
+    font-size: 20px;
+    font-family: var(--font-family-noto);
+    font-weight: 600;
+    text-align: center;
+}
+
+
+#portfolio .container-fluid, #portfolio .container-sm, #portfolio .container-md, #portfolio .container-lg, #portfolio .container-xl {
+  max-width: 1920px;
+}
+#portfolio .container-fluid .portfolio-box, #portfolio .container-sm .portfolio-box, #portfolio .container-md .portfolio-box, #portfolio .container-lg .portfolio-box, #portfolio .container-xl .portfolio-box {
+  position: relative;
+  display: block;
+}
+#portfolio .container-fluid .portfolio-box .portfolio-box-caption, #portfolio .container-sm .portfolio-box .portfolio-box-caption, #portfolio .container-md .portfolio-box .portfolio-box-caption, #portfolio .container-lg .portfolio-box .portfolio-box-caption, #portfolio .container-xl .portfolio-box .portfolio-box-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  opacity: 0;
+  color: #fff;
+  background: rgba(244, 98, 58, 0.9);
+  transition: opacity 0.25s ease;
+  text-align: center;
+}
+#portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-sm .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-md .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-lg .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-xl .portfolio-box .portfolio-box-caption .project-category {
+  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+#portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-sm .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-md .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-lg .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-xl .portfolio-box .portfolio-box-caption .project-name {
+  font-size: 1.2rem;
+}
+#portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption {
+  opacity: 1;
+}
+
+.text-white-75 {
+  color: rgba(255, 255, 255, 0.75);
+}
