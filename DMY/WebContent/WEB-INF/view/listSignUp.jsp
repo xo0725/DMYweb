@@ -1,4 +1,4 @@
-<%@page import="dmy..signup.vo.DmySignUpVO"%>
+<%@page import="dmy.signup.vo.DmySignUpVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
