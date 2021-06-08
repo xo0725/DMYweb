@@ -20,6 +20,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="css/tipboard/listboard.css" rel="stylesheet" />
 <title>팁공유게시판 목록</title>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
 
 
@@ -122,6 +123,7 @@
 					 <span class="sub_total">총 <%= stvo.getdpg_totalSize() %>개 게시글</span>
 					 <div>
 					 	<input class="sub_insertbtn" type="button" value="글쓰기" id="insertboard" >
+					
 					 </div>
 				</div>
 <%
@@ -161,6 +163,7 @@
 				<div class="content content_num" style="width: 16%;"><%= param.getdtb_no() %></div>
 				<div class="content content_category" style="width: 16%;"><%=param.getdtb_category() %></div>
 				<div class="content content_subject goDetail" style="width: 23%;"><%= param.getdtb_subject() %></div>
+				<div class="content content_author" style="width: 16%;"><%=param.getdtb_subject() %></div>
 				<div class="content content_inserdate" style="width: 16%;"><%= param.getdtb_insertdate() %></div>
 				<div class="content content_total" style="width: 16%;"><%= param.getdtb_viewcnt() %></div>
 			</div>

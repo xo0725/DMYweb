@@ -21,6 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import dmy.tipboard.common.ChabunUtil;
+import dmy.tipboard.common.service.ChabunService;
 import dmy.tipboard.service.DmyTipBoardService;
 import dmy.tipboard.vo.DmyTipBoardVO;
 
@@ -28,6 +30,17 @@ import dmy.tipboard.vo.DmyTipBoardVO;
 public class DmyTipboardController {
 
 	private static Logger log = Logger.getLogger(DmyTipboardController.class);
+	
+	private DmyTipBoardService boardService;
+	private ChabunService chabunService;
+	
+	// 생성자 Autowired 
+	@Autowired(required=false)	
+	public DmyTipboardController( DmyTipBoardService boardService
+			               ,ChabunService chabunService) {
+		this.boardService = boardService;
+		this.chabunService = chabunService;
+	}	
 
 	@Autowired
 	private DmyTipBoardService dmyTipBoardService;
@@ -314,11 +327,19 @@ public class DmyTipboardController {
 	public String insertboard(HttpServletRequest request, DmyTipBoardVO param) {
 		log.info("DmyTipBoardController insertboard >>> ");
 
+		// 채번 구하기
+		String dtb_no= ChabunUtil.getTipBoardChabun("N", chabunService.getBoardChabun().getdtb_no());
+		log.info("DmyTipBoardController insertboard dtb_no >>> : " + dtb_no);
+		
+
+		
 		int size = 10 * 1024 * 1024;
 		String path = "C:\\00.KOSMO78\\100.project\\DMYweb\\DMY\\WebContent\\WEB-INF\\file";
 
 		log.info("request.getContentType()" + request.getContentType());
 
+		
+		
 		try {
 			MultipartRequest mult = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());
 
@@ -337,7 +358,7 @@ public class DmyTipboardController {
 			log.info("dtb_shareyn >>> : " + dtb_shareyn);
 			log.info("dtb_content >>> : " + dtb_content);
 			log.info("dtb_file >>> : " + dtb_file);
-			param.setdtb_no("0001");
+			param.setdtb_no(dtb_no);
 			param.setdmb_no(dmb_no);
 			param.setdtb_category(dtb_category);
 			param.setdtb_subject(dtb_subject);
@@ -373,7 +394,7 @@ public class DmyTipboardController {
 		} else {
 			log.info("insert 실패  >>> " + result);
 		}
-		url = "/listboard.Dmy";
+		url = "/listboard.dmy";
 
 		return "redirect:" + url;
 	}// end of insertboard
@@ -463,7 +484,7 @@ public class DmyTipboardController {
 		} else {
 			log.info("update 실패  >>> " + result);
 		}
-		url = "/listboard.Dmy";
+		url = "/listboard.dmy";
 
 		return "redirect:" + url;
 	}

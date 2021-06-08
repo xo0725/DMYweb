@@ -93,7 +93,7 @@ function selectCategory(){
 		%>
 		<div align="center">
 			<form id="insertboard" name="insertboard" method="post">
-			<input type="hidden" id="dmb_no" name="dmb_no" value="<%= dmb_no %>">
+			<input type="hidden" id="dmb_no" name="dmb_no" value="<%= dmb_no %>" readonly>
 				<table border="1">
 					<thread>
 						<tr>

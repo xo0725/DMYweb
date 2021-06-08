@@ -183,7 +183,7 @@
 				#{dtb_pw, jdbcType=VARCHAR},         -- 비밀번호
 				#{dtb_content, jdbcType=VARCHAR},    -- 내용
 				#{dtb_file, jdbcType=VARCHAR},       -- 파일
-				#{dtb_shareyn , jdbcType=VARCHAR},                      -- 공유여부
+				#{dtb_shareyn , jdbcType=VARCHAR},   -- 공유여부
 				'Y',                                 -- 삭제여부
 				SYSDATE,                             -- 등록일
 				SYSDATE,                             -- 수정일
