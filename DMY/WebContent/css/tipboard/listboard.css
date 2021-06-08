@@ -1,0 +1,378 @@
+@charset "UTF-8";
+/*!
+* Start Bootstrap - Creative v6.0.3 (https://startbootstrap.com/themes/creative)
+* Copyright 2013-2020 Start Bootstrap
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-creative/blob/master/LICENSE)
+*/
+/*!
+ * Bootstrap v4.5.0 (https://getbootstrap.com/)
+ * Copyright 2011-2020 The Bootstrap Authors
+ * Copyright 2011-2020 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #f4623a;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #f4623a;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --font-family-sans-serif: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-family-kalam: 'Kalam', cursive;
+  --font-family-noto: 'Noto Sans KR', sans-serif;
+  --font-family-nanum: 'Nanum Gothic', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+
+body{
+  margin: 0;
+  /*font-family: "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
+  font-family: var(--font-family-noto);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ol,
+ul,
+dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+  margin-bottom: 0;
+}
+
+a {
+  color: #f4623a;
+  text-decoration: none;
+  background-color: transparent;
+}
+a:hover {
+  color: #d6370c;
+  text-decoration: underline;
+}
+
+a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+a:not([href]):hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  border-radius: 0;
+}
+
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+[role=button] {
+  cursor: pointer;
+}
+
+select {
+  word-wrap: normal;
+}
+
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+button:not(:disabled),
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled) {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner,
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+input[type=radio],
+input[type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 0.5rem;
+  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+
+section{
+  background-color: var(--light);
+  padding-top: 120px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+}
+section h1
+{
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid black;
+}
+/****************************************게시판 부분***************************************************/
+/*****카테고리, 제목(+작성자), 검색부분*****/
+/*전체 내용에 font 형식과 글자크기 선언*/
+form,
+form input
+{
+    font-family: var(--font-family-noto);
+    font-size: 14px;
+}
+/*카테고리, 제목(+작성자), 검색부분*/
+form .sub
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+/*stb_category, sub_subject, 검색어입력란, 검색버튼을 가로배치하기 위한 선언*/
+form .sub .sub_category_subject
+{
+    display: flex;
+}
+form .sub .sub_category_subject .sub_category
+{
+    margin-right: 10px;
+}
+
+form .sub .sub_subject
+{
+	margin-left:640px;
+}
+/*검색란에 대한 css설정*/
+form .sub .sub_search input[type=text]
+{
+    width: 230px;
+    height: 33px;
+    vertical-align: middle;
+    border-style: none;
+}
+/*검색버튼에 대한 css 설정*/
+form .sub .sub_search input[type=button]
+{
+    width: 60px;
+    height: 27px;
+    vertical-align: middle;
+    padding: 3px 0px;
+    border-style: none;
+    border-radius: 3px;
+}
+/*댓글 총갯수와 글쓰기 버튼에 대한 부분*/
+/*댓글 총갯수와 글쓰기 버튼를 가로배치*/
+/*각부분을 좌,우 끝부분으로 보냄*/
+/*matgin으로 위,아래 간격 벌림*/
+form .sub_total_insertbtn
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/*글쓰기 버튼*/
+/*버튼의 가로, 세로 넓이 지정*/
+/*버튼 테두리 없앰*/
+/*버튼 모서리 5px 둥글게 설정*/
+form .sub_insertbtn
+{
+    width: 70px;
+    height: 30px;
+    border-style: none;
+    border-radius: 5px
+}
+
+/*****게시판 부분*****/
+/*게시판에 대한 width,height 지정*/
+/*내용이 없을 때 footer가 올라오지 못하도록 padding-bottom 지정*/
+/*margin-bottom 쓰면 class="container" 배경색 사용 불가*/
+section .board
+{
+    width: 100%;
+    height: auto;
+    padding-bottom: 214px;
+}
+/*게시판 제목 부분(글번호, 카테고리, 제목, 작성자, 작성일, 조회수) 부분 class="info"*/
+/*글씨체, 글씨크기, 글씨두께 지정*/
+/*글씨 가운데 정렬*/
+/*제목 부분(글번호, 카테고리, 제목, 작성자, 작성일, 조회수) 가로 배치*/
+section .board .board_info
+{
+    font-family: var(--font-family-noto);
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+}
+/*게시판 제목(글번호, 카테고리, 제목, 작성자, 작성일, 조회수)의 모든 부분에 대한 효과*/
+/*위 아래 경계선 구현*/
+/*padding 으로 위아래 13px 간격 벌림*/
+/*배경색 지정*/
+section .board .info
+{
+    border-top: 1px solid rgb(163, 163, 163);
+    border-bottom: 1px solid rgb(163, 163, 163);
+    padding: 13px 0px;
+    background-color: #F4F6F9;
+}
+/*************게시글 부분***************/
+/*게시판 게시글 전체에 대한 효과 class="content"*/
+/*글씨체, 글씨크기, 글씨두께 지정*/
+/*글씨 가운데 정렬*/
+/*padding으로 위 5px 아래 3px 간격 만듬*/
+/*게시글 가로로 배치*/
+/*배경색지정*/
+section .board .board_content
+{
+    font-family: var(--font-family-noto);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    background-color: var(--white);
+    
+}
+/*게시판 게시글에 마우스를 올렸을 때 배경색, 글자색 변화*/
+section .board .board_content:hover
+{
+	background-color: #E0EAF9;
+	color: var(--gray);
+}
+/*게시글 각각에 padding 위,아래 10px 좌우 0px*/
+section .board .content
+{
+    padding: 10px 0px;
+}
+/*게시판의 게시글 제목에 마우스 포인트 설정*/
+/*게시글 제목에 마우스 포인트가 올라가면 pointer 모양으로 변화*/
+section .board .content_subject
+{
+	cursor: pointer;
+}
+/*게시판의 게시글 제목에 마우스 포인트를 올렸을 때 a링크에 밑줄 효과*/
+section .board .content_subject:hover
+{
+	text-decoration: underline;
+}
+/*게시판에 글이 없을 때*/
+/*글씨크기, 글씨체, 글씨두께 지정*/
+/*글씨 가운데 정렬*/
+section .board_nondate
+{
+    font-size: 20px;
+    font-family: var(--font-family-noto);
+    font-weight: 600;
+    text-align: center;
+}

@@ -107,13 +107,13 @@
 				   ,A.DTB_SHAREYN 
 				   ,A.DTB_DELETEYN 
 				   ,A.DTB_INSERTDATE 
-				   ,A.DTB_UPDATEDATE 
+				   ,A.DTB_UPDATEDATE                                                                                                                   
 				   ,A.DMB_NO
 				FROM DMY_TIPBOARD A
 	</select>
 	
 	<!-- 팁공유게시판 목록조회 -->
-	<select id="listBoard" parameterType="DmyTipBoardVO" resultType="DmyTipBoardVO">
+	<select id="listboard" parameterType="DmyTipBoardVO" resultType="DmyTipBoardVO">
 			  SELECT    
 			  		A.DTB_NO 
 				   ,A.DTB_CATEGORY 
@@ -126,31 +126,28 @@
 				   ,A.DTB_SHAREYN 
 				   ,A.DTB_DELETEYN 
 				   ,A.DTB_INSERTDATE 
-				   ,A.DTB_UPDATEDATE 
+				   ,A.DTB_UPDATEDATE                                                                                                           
 				   ,A.DMB_NO
 				FROM DMY_TIPBOARD A
 	</select>
 	
 	<!-- 팁공유게시판 상세조회 -->
 	<select id ="detailboard" parameterType="DmyTipBoardVO" resultType="DmyTipBoardVO">
-        SELECT 
-		           A.DTB_NO                                                                     						 										                                       AS DTB_NO            -- 글번호
-			      ,A.DTB_CATEGORY                                                               						 										                                       AS DTB_CATEGORY      -- 카테고리
-			      ,A.DTB_SUBJECT                                                                 																                                       AS DTB_SUBJECT       -- 제목
-			      ,A.DTB_VIEWCNT                                                                						 										                                       AS DTB_VIEWCNT       -- 조회수
-			      ,(SELECT COUNT(SG.DGD_GOODYN) AS DGD_GOODYN FROM DMY_GOOD SG WHERE SG.DTB_NO = #{dtb_no} AND DGD_GOODYN = 'Y')  							 		                               AS DTB_GOODCNT       -- 좋아요
-			      ,NVL((SELECT SG.DGD_GOODYN AS DGD_GOODYN FROM DMY_GOOD SG WHERE  A.DTB_NO = SG.DTB_NO AND  A.DTB_NO = #{dtb_no} AND SG.DMB_NO = #{session_no} AND SG.DGD_GOODYN = 'Y'),'N')     AS MY_GOODYN         -- 나의 좋아요 여부
-			      ,A.DTB_PW                                                                     						 									      		                               AS DTB_PW            -- 비밀번호
-			      ,A.DTB_CONTENT                                                                						 										  		                               AS DTB_CONTENT       -- 내용
-			      ,A.DTB_FILE                                                                   																                                       AS DTB_FILE          -- 파일
-			      ,A.DTB_SHAREYN                                                                															   	                                       AS DTB_SHAREYN       -- 공유여부
-			      ,A.DTB_DELETEYN                                                               						                                                                               AS DTB_DELETEYN      -- 삭제여부
-			      ,TO_CHAR(A.DTB_INSERTDATE,'YYYY-MM-DD HH24:MI')                               						                                                                               AS DTB_INSERTDATE    -- 등록일
-			      ,TO_CHAR(A.DTB_UPDATEDATE,'YYYY-MM-DD HH24:MI')                               						                                                                               AS DTB_UPDATEDATE    -- 수정일
-			      ,A.DMB_NO                                                                     						                                                                               AS DMB_NO            -- 회원번호
-			      ,(SELECT B.DMB_ID AS DMB_ID FROM DMY_MEMBER B WHERE B.DMB_NO = A.DMB_NO) 						                                                                               AS DMB_ID            -- 아이디
-		FROM       DMY_TIPBOARD A 
-		WHERE	   A.DTB_NO = #{dtb_no}
+        	  SELECT    
+			  		A.DTB_NO 
+				   ,A.DTB_CATEGORY 
+				   ,A.DTB_SUBJECT 
+				   ,A.DTB_VIEWCNT 
+				   ,A.DTB_GOODCNT 
+				   ,A.DTB_PW 
+				   ,A.DTB_CONTENT 
+				   ,A.DTB_FILE 
+				   ,A.DTB_SHAREYN 
+				   ,A.DTB_DELETEYN 
+				   ,A.DTB_INSERTDATE 
+				   ,A.DTB_UPDATEDATE                                                                                                                      
+				   ,A.DMB_NO
+				FROM DMY_TIPBOARD A
 
 
 	</select>

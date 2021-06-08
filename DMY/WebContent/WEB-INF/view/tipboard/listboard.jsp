@@ -22,6 +22,7 @@
 <title>팁공유게시판 목록</title>
 <script type="text/javascript">
 
+
 	$(document).ready(function(){
 		//alert(">>>")
 		
@@ -182,16 +183,7 @@
 					DmyTipBoardVO dvo = (DmyTipBoardVO)list.get(0);
 				
 		%>
-					<div class = "paging_Box">
-							<jsp:include page="../tipboard/paging.jsp" flush="true">
-								<jsp:param name="url" value="listboard.dmy" />
-								<jsp:param name="str" value="" />
-								<jsp:param name="dpg_pageSize" value="<%= dvo.getdpg_pageSize() %>" />
-								<jsp:param name="dpg_groupSize" value="<%= dvo.getdpg_groupSize() %>" />
-								<jsp:param name="dpg_curPage" value="<%= dvo.getdpg_curPage() %>" />
-								<jsp:param name="dpg_totalSize" value="<%= dvo.getdpg_totalSize() %>" />
-							</jsp:include>
-					</div>
+
 			<%
 					}
 				}

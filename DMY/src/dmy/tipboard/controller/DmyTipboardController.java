@@ -77,6 +77,7 @@ public class DmyTipboardController {
 	}
 
 	//팁공유게시판 목록 조회-------------------------------------------------------------------------------------------------
+
 	@RequestMapping("/listboard")
 	public ModelAndView listboard(@ModelAttribute DmyTipBoardVO param, HttpServletRequest request) {
 

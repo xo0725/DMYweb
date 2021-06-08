@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+/* paging css */
+
+.paging_Box{
+	display: flex;
+	justify-content: center;
+}
+.paging {
+  list-style: none;
+  display: inline-block;
+  padding: 20px 0px;
+  margin-top: 10px;
+ 
+}
+.paging li {
+  display: inline;
+  text-align: center;
+}
+.paging li span{
+	cursor: pointer;
+}
+.paging a, .paging li span {
+  float: left;
+  display: block;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 5px 12px;
+  color: #fff;
+  margin-left: -1px;
+  border: 1px solid transparent;
+  line-height: 1.5;
+}
+.paging a.active, a.noLink, .paging li span.active{
+  cursor: default;
+}
+.paging span.active{
+  cursor: default;
+}
+.paging a:active, .paging li span:active {
+  outline: none;
+}
+
+.model li:first-child a, .model li:last-child span {
+  -moz-border-radius: 50px 0 0 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px 0 0 50px;
+}
+.model li:last-child a, .model li:last-child  span {
+  -moz-border-radius: 0 50px 50px 0;
+  -webkit-border-radius: 0;
+  border-radius: 0 50px 50px 0;
+}
+.model a, .model li span {
+  border-color: #ddd;
+  color: #999;
+  background: #fff;
+}
+.model a:hover, .model li span:hover {
+  color: #e67f85;
+  background-color: #eee;
+}
+.model a.active, .model a:active, .model li span.active, .model li span:active {
+  border-color: #e67f85;
+  background: #e67f85;
+  color: #fff;
+}
