@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+<mapper namespace="dmy.signup.dao.DmySignUpMapper">
+	
+	<!-- <resultMap type="a.b.c.com.test.signup.vo.DmySignUpVO" id="svo">
+		<result property="dsu_no" column="DSU_NO"/>
+		<result property="dsu_subject" column="DSU_SUBJECT"/>
+		<result property="dsu_area" column="DSU_AREA"/>
+		<result property="dsu_introduce" column="DSU_INTRODUCE"/>
+		<result property="dsu_applyyn" column="DSU_APPLYYN"/>
+		<result property="dsu_deleteyn" column="DSU_DELETEYN"/>
+		<result property="dsu_insertdate" column="DSU_INSERTDATE"/>
+		<result property="dsu_updatedate" column="DSU_UPDATEDATE"/>
+	</resultMap>
+ -->
+
+	<!-- 신청 전체 조회 -->
+	<select id="listSignUp" resultType="svo">
+		SELECT
+				A.DSU_NO,		DSU_NO,
+				A.DSU_SUBJECT	DSU_SUBJECT,	
+				A.DSU_AREA		DSU_AREA,
+				A.DSU_INTRODUCE	DSU_INTRODUCE,
+				A.DSU_APPLYYN	DSU_APPLYYN	,
+				A.DSU_DELETEYN	DSU_DELETEYN,
+				TO_CHAR(A.DSU_INSERTDATE, 'YYYY-MM-DD')	DSU_INSERTDATE,
+				TO_CHAR(A.DSU_UPDATEDATE, 'YYYY-MM-DD')	DSU_UPDATEDATE
+			FROM DSU_SIGNUP A
+	</select>
+
+
+
+
+
+	<!-- 매칭 신청 -->
+	<insert id="signUpMatch" parameterType="svo">
+		INSERT INTO DMYMATCH_SIGNUP(
+			DSU_NO,
+    		DSU_SUBJECT ,
+    		DSU_INTRODUCE ,
+    		DSU_APPLYYN ,	
+    		DSU_DELETEYN ,
+    		DSU_INSERTDATE ,		
+    		DSU_UPDATEDATE 
+		) VALUES(
+			#{dsu_no},
+			#{dsu_subject},
+			#{dsu_area},
+			#{dsu_introduce},
+			'W',
+			'Y',
+			SYSDATE,
+			SYSDATE
+		)
+	</insert>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
