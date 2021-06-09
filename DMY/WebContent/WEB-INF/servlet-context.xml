@@ -33,7 +33,7 @@
 
 <!--  DAO 또는 Mapper찾기 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage"><value>dmy..**.dao</value></property>
+		<property name="basePackage"><value>dmy.**.dao</value></property>
 	</bean>
 
 

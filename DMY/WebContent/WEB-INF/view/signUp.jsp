@@ -12,7 +12,7 @@
 		$("#signUpMatchBtn").click(function() {
 			alert("¸ÅÄª ½ÅÃ»!!!");
 			$("#viewSignUpMatch").attr({
-				"action":"signUpMath.ljm",
+				"action":"signUpMath.dmy",
 				"method":"GET",
 				"enctype":"application/x-www-form-urlencoded"
 			}).submit();

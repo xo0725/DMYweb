@@ -36,19 +36,20 @@
 
 	<!-- 매칭 신청 -->
 	<insert id="signUpMatch" parameterType="svo">
-		INSERT INTO DMYMATCH_SIGNUP(
+		INSERT INTO DSU_SIGNUP(
 			DSU_NO,
-    		DSU_SUBJECT ,
-    		DSU_INTRODUCE ,
-    		DSU_APPLYYN ,	
-    		DSU_DELETEYN ,
-    		DSU_INSERTDATE ,		
+    		DSU_SUBJECT,
+    		DSU_AREA,
+    		DSU_INTRODUCE,
+    		DSU_APPLYYN,
+    		DSU_DELETEYN,
+    		DSU_INSERTDATE,
     		DSU_UPDATEDATE 
 		) VALUES(
-			#{dsu_no},
-			#{dsu_subject},
-			#{dsu_area},
-			#{dsu_introduce},
+			#{dsu_no, jdbcType=VARCHAR},
+			#{dsu_subject, jdbcType=VARCHAR},
+			#{dsu_area, jdbcType=VARCHAR},
+			#{dsu_introduce, jdbcType=VARCHAR},
 			'W',
 			'Y',
 			SYSDATE,

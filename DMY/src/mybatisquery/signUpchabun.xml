@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+<mapper namespace="dmy.chabun.dao.DmySignUpMapper">
+
+<select id="getSignUpChabun" parameterType="svo">
+	SELECT
+	NVL(MAX(SUBSTR(A.DSU_NO, -4)), 0) + 1 DSU_NO
+	FROM DSU_SIGNUP A
+</select>
+
+</mapper>
