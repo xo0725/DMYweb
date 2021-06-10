@@ -60,7 +60,9 @@ public class DmySignUpServiceImpl implements DmySignUpService {
 		// TODO Auto-generated method stub
 		logger.info("DmySignUpServiceImpl signUpMatch ½ÃÀÛ!!!");
 		logger.info("signUpMatch svo >>> : " + svo);
+		
 		int nCnt = dmySignUpMapper.signUpMatch(svo);
+		
 		logger.info("signUpMatch >>> : " + nCnt);
 		logger.info("DmySignUpServiceImpl signUpMatch ³¡!!!");
 		

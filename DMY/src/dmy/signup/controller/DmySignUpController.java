@@ -9,11 +9,13 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.portlet.ModelAndView;
+import org.springframework.web.servlet.ModelAndView;
 
 import dmy.common.ChabunUtil;
+import dmy.common.DateFormatUtil;
 import dmy.signup.chabun.service.ChabunService;
 import dmy.signup.service.DmySignUpService;
 import dmy.signup.vo.DmySignUpVO;
@@ -51,30 +53,33 @@ public class DmySignUpController {
 		return "listSignUp"; // 총합할때 디렉토리 수정
 	}
 	
-	
-	
+	@RequestMapping(value = "signUp", method = RequestMethod.GET)
+	public String signUp() {
+		System.out.println("DmySignUpController signUp 함수 진입 성공!!");
+		
+		return "signUp"; // 총합할때 디렉토리 수정
+	}
 	
 	
 	
 	// 신청하기 insert
-	@RequestMapping(value = "signUpMath", method = RequestMethod.GET)
+	@RequestMapping(value = "signUpMatch", method = RequestMethod.GET)
 	public String signUpMatch(DmySignUpVO svo, HttpServletRequest req) {
 		System.out.println("DmySignUpController signUpMatch 함수 진입 성공!!");
 		logger.info("DmySignUpController signUpMatch 함수 진입 성공!!" + svo);
 		
-		int result = dmySignUpService.signUpMatch(svo);
-		
-		String resultStr = "";
-		//String resultPage = "";
-		
 		// 채번 셋팅
-		String dsu_no = ChabunUtil.getSignUpChabun("SM", chabunService.getSignUpChabun().getDsu_no());
+		String dsu_no = ChabunUtil.getSignUpChabun("N", chabunService.getSignUpChabun().getDsu_no());
+		// String dsu_no = DateFormatUtil.ymdFormats("N");
 		logger.info("DmySignUpController insert dsu_no >>> : " + dsu_no);
 		svo.setDsu_no(dsu_no);
 		
 		logger.info("DmySignUpController signUpMatch svo.getDsu_no() >>> : " + svo.getDsu_no());
 		
+		int result = dmySignUpService.signUpMatch(svo);
 		
+		String resultStr = "";
+	
 		ModelAndView mav = new ModelAndView();
 		
 		// 세션
@@ -112,11 +117,6 @@ public class DmySignUpController {
 	}
 	
 }
-
-
-
-
-
 
 
 

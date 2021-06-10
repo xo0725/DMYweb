@@ -21,11 +21,9 @@ public class DmySignUpMapperImpl implements DmySignUpMapper {
 	@Override
 	public List<DmySignUpVO> listSignUp(DmySignUpVO svo) {
 		// TODO Auto-generated method stub
-		System.out.println("DmySignUpMapperImpl listSignUp 시작!!!");
-		logger.info("DmySignUpMapperImpl listSignUp 시작!!!");
+		System.out.println("DmySignUpMapperImpl listSignUp !!!");
+		logger.info("DmySignUpMapperImpl listSignUp !!!");
 		
-		System.out.println("DmySignUpMapperImpl listSignUp 끝!!!");
-		logger.info("DmySignUpMapperImpl listSignUp 끝!!!");
 		
 		return sqlSession.selectList("listSignUp");
 	}
@@ -52,12 +50,9 @@ public class DmySignUpMapperImpl implements DmySignUpMapper {
 	@Override
 	public int signUpMatch(DmySignUpVO svo) {
 		// TODO Auto-generated method stub
-		System.out.println("DmySignUpMapperImpl listSignUp 시작!!!");
-		logger.info("DmySignUpMapperImpl listSignUp 시작!!!");
+		System.out.println("DmySignUpMapperImpl signUpMatch !!!");
+		logger.info("DmySignUpMapperImpl signUpMatch !!!");
 
-		System.out.println("DmySignUpMapperImpl listSignUp 끝!!!");
-		logger.info("DmySignUpMapperImpl listSignUp 끝!!!");
-		
 		return (int)sqlSession.insert("signUpMatch");
 	}
 

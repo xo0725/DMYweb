@@ -12,7 +12,7 @@
 		$("#signUpMatchBtn").click(function() {
 			alert("매칭 신청!!!");
 			$("#viewSignUpMatch").attr({
-				"action":"signUpMath.dmy",
+				"action":"signUpMatch.dmy",
 				"method":"GET",
 				"enctype":"application/x-www-form-urlencoded"
 			}).submit();
@@ -50,7 +50,7 @@
 	
 	<tr>
 		<td colspan="2" align="center">
-		<input type="button" value="보내기" id="signUpMatchBtn" name="signUpMatchBtn">
+		<input type="button" value="보내기" id="signUpMatch" name="signUpMatch">
 		<input type="reset" value="취소">
 	</tr>
 
